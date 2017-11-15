@@ -12,13 +12,13 @@ headTitle=['ID','Type']
 for i in range(2,344):
     headTitle.append('feature'+str(i-1))
 #step2. 写入csv文件
-newtrainFile=open("F:\Code\modify-data-sklearn\data\\train.csv","w", newline='')
+newtrainFile=open("C:\CIEL\code\modify-data-sklearn\data\\20171114-rawtrain.csv","w", newline='')
 #newtrainFile=open("F:\Code\modify-data-sklearn\\modify.csv", "w", newline='')  #测试文件
 csv_writer=csv.writer(newtrainFile, dialect='excel')
 csv_writer.writerow(headTitle)
 
 #打开原始训练集rawtrain.txt
-rawtrainFile=open("F:\Code\modify-data-sklearn\data\\rawtrain.txt","r")
+rawtrainFile=open("C:\CIEL\code\modify-data-sklearn\data\\20171114-rawtrain.txt","r")
 #rawtrainFile=open("F:\Code\modify-data-sklearn\\test.txt","r")  #测试文件
 
 #逐行读取
@@ -49,13 +49,14 @@ while not fileEnd:
                 trainSample.append(splitLine[i])
             else:  #feature(i)
                 trainSample.append(splitLine[i])
+        # print(trainSample)
         csv_writer=csv.writer(newtrainFile, dialect='excel')
         csv_writer.writerow(trainSample)
             
     else:
         fileEnd=1
 
-#print(rowNum)
+print(rowNum)
 
 rawtrainFile.close()
 newtrainFile.close()
